@@ -52,14 +52,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ItemManager.cs" />
-     <Compile Include="Assets\Scripts\Items\Item.cs" />
-     <Compile Include="Assets\Scripts\Items\BasicItem.cs" />
-     <Compile Include="Assets\Scripts\UI.cs" />
-     <Compile Include="Assets\Scripts\Slot.cs" />
-     <Compile Include="Assets\Scripts\Items\ItemData.cs" />
-     <Compile Include="Assets\Scripts\Items\Catalog.cs" />
      <Compile Include="Assets\Scripts\Items\ItemCombo.cs" />
+     <Compile Include="Assets\Scripts\Items\ItemData.cs" />
+     <Compile Include="Assets\Scripts\ItemManager.cs" />
+     <Compile Include="Assets\Scripts\UI.cs" />
+     <Compile Include="Assets\Scripts\Items\BasicItem.cs" />
+     <Compile Include="Assets\Scripts\Items\Catalog.cs" />
+     <Compile Include="Assets\Scripts\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Slot.cs" />
+     <Compile Include="Assets\Scripts\LookAt.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
