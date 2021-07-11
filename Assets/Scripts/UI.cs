@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Items;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,10 @@ public class UI : MonoBehaviour
 {
     public static UI instance;
     public Catalog comboCatalog;
+
+    public TextMeshProUGUI ballText;
+    public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI scoreText;
 
     [Header("DONT TOUCH")]
     public List<Slot> slots = new List<Slot>();
@@ -22,6 +27,8 @@ public class UI : MonoBehaviour
     {
         instance = this;
         slots = GetComponentsInChildren<Slot>().ToList();
+        RefreshSpitUI(null);
+        RefreshScoreUI(0);
     }
 
     public void SetSlot(Item item)
@@ -62,7 +69,6 @@ public class UI : MonoBehaviour
     
     public void CheckForSlotOnRelease(PointerEventData data)
     {
-        print("Looking for the fucking  SLOT");
         RaycastHit hit;
         List<RaycastResult> res = new List<RaycastResult>();
         
@@ -72,9 +78,9 @@ public class UI : MonoBehaviour
         {
             foreach (var uithing in res)
             {
-                Slot dropSlot = uithing.gameObject.GetComponent<Slot>();
+                IDropSlot dropSlot = uithing.gameObject.GetComponent<IDropSlot>();
 
-                if (dropSlot)
+                if (dropSlot != null)
                 {
                     print("FOUND SLOT");
                     dropSlot.OnDraggedOnToo(currentSelection);
@@ -87,7 +93,6 @@ public class UI : MonoBehaviour
     
     public bool Combine(Item ingOne, Item ingTwo)
     {
-            
         foreach (ItemCombo itemCombo in comboCatalog.Combos)
         {
             Debug.Log(itemCombo.firstIngredient.name);
@@ -114,5 +119,23 @@ public class UI : MonoBehaviour
 
         Debug.Log("Combine Failed");
         return false;
+    }
+
+    public void RefreshSpitUI(Spitball ball)
+    {
+        if (ball == null)
+        {
+            ballText.SetText("");
+            ammoText.SetText("");
+            return;
+        }
+        
+        ballText.SetText(ball.data.name);
+        ammoText.SetText($"{ball.ammo}/{ball.data.startAmmo}");
+    }
+
+    public void RefreshScoreUI(int score)
+    {
+        scoreText.SetText("Score: " + score);
     }
 }

@@ -8,7 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ItemManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TeacherHitBox.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -18,10 +19,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemCombo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/Catalog.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ItemManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Slot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Spitball.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MouthSlot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Items/SpitballData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teacher.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TeacherHitBox.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LookAt.cs" />
     </changedPaths>
   </component>
@@ -68,7 +75,8 @@
       <updated>1625847268532</updated>
       <workItem from="1625847279177" duration="16327000" />
       <workItem from="1625902866683" duration="1820000" />
-      <workItem from="1625916107962" duration="647000" />
+      <workItem from="1625916107962" duration="7001000" />
+      <workItem from="1625926881734" duration="3382000" />
     </task>
     <servers />
   </component>

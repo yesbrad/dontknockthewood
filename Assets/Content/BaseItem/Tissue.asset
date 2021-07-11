@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tissue
   slotImageSprite: {fileID: 21300000, guid: 5ec0cbd05baee4559aa584ffebf93dc6, type: 3}
+  spitball: {fileID: 11400000, guid: 04e04c2dd9bed4d1f903c9d9005958cc, type: 2}

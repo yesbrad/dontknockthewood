@@ -3,7 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IBeginDragHandler, IPointerDownHandler, IDragHandler, IEndDragHandler
+public interface IDropSlot
+{
+    public void OnDraggedOnToo(Slot incomingSlot);
+}
+
+public class Slot : MonoBehaviour, IBeginDragHandler, IPointerDownHandler, IDragHandler, IEndDragHandler, IDropSlot
 {
     private Image slotImage;
     public Item currentItem;

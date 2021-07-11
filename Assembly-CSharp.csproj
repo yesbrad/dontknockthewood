@@ -52,20 +52,41 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\DemoInfo.cs" />
+     <Compile Include="Assets\Scripts\Spitball.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\PropertyModifier.cs" />
      <Compile Include="Assets\Scripts\Items\ItemCombo.cs" />
+     <Compile Include="Assets\Scripts\Items\SpitballData.cs" />
+     <Compile Include="Assets\Scripts\MouthSlot.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Scripts\PSXEffects.cs" />
      <Compile Include="Assets\Scripts\Items\ItemData.cs" />
-     <Compile Include="Assets\Scripts\ItemManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Packages\Classroom\Scripts\CharacterControl.cs" />
      <Compile Include="Assets\Scripts\UI.cs" />
      <Compile Include="Assets\Scripts\Items\BasicItem.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\CameraOrbit.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\CameraMovement.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\DemoValueChanger.cs" />
+     <Compile Include="Assets\Packages\Classroom\Scripts\ClockAnim.cs" />
      <Compile Include="Assets\Scripts\Items\Catalog.cs" />
+     <Compile Include="Assets\Scripts\LookAt.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\CameraFlythrough.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\VertexColors.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\ObjectRotate.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Slot.cs" />
-     <Compile Include="Assets\Scripts\LookAt.cs" />
+     <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Teacher.cs" />
+     <Compile Include="Assets\Scripts\TeacherHitBox.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\Packages\PSXEffects\Shaders\Resources\PSXEffects.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\Packages\PSXEffects\Documentation.txt" />
+     <None Include="Assets\Packages\PSXEffects\Shaders\Resources\PSXLightmapping.cginc" />
+     <None Include="Assets\Packages\PSXEffects\Shaders\Resources\PS1Shader.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -75,7 +96,10 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\Packages\greyRoadStudio\LowPolyTreePack\readme.txt" />
+     <None Include="Assets\Packages\PSXEffects\Shaders\Resources\PS1PostProcessing.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\Packages\Classroom\URP_Readme.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
