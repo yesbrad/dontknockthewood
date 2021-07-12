@@ -46,10 +46,7 @@ public class GameManager : MonoBehaviour
                         if (s != null)
                         {
                             s.OnHit(currentSpitBall);
-
-                            var thing = Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);
-                            
-                            Destroy(thing, 5);
+                            Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);                    
                         }
                     }
                     

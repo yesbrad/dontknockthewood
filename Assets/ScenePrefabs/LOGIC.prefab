@@ -497,12 +497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02aa3da81048c43c98d92ca0862ed2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpitBall:
-    data: {fileID: 0}
-    ammo: 0
+  scoreToBeat: 10000
   baseSpitballHitPrefab: {fileID: 0}
   straw: {fileID: 48778137679555647}
-  scoreToBeat: 10000
+  spitballHitPFX: {fileID: 7292661600980639899, guid: f67858f2ea18641d5b42caab40b39da7, type: 3}
 --- !u!1 &886434939886625465
 GameObject:
   m_ObjectHideFlags: 0
