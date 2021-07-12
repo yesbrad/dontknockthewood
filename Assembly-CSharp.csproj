@@ -714,6 +714,9 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/dontknockthewood/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>D:/dontknockthewood/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

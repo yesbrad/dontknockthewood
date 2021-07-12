@@ -8,17 +8,13 @@ public interface IDropSlot
     public void OnDraggedOnToo(Slot incomingSlot);
 }
 
-public class Slot : MonoBehaviour, IBeginDragHandler, IPointerDownHandler, IDragHandler, IEndDragHandler, IDropSlot
+public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropSlot, IPointerEnterHandler
 {
-    private Image slotImage;
-    public Item currentItem;
+    public Sprite defaultSprite;
+    public Image slotImage;
+    internal Item currentItem;
 
     public bool HasItem => currentItem != null;
-
-    private void Awake()
-    {
-        slotImage = GetComponentInChildren<Image>();
-    }
 
     public void Set(Item item)
     {
@@ -34,37 +30,34 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IPointerDownHandler, IDrag
 
     public void RefreshUI()
     {
+        slotImage.color = Color.white;
+        
         if (currentItem)
         {
-            slotImage.sprite = currentItem.data.slotImageSprite;
+            if (currentItem.data.slotImageSprite == null)
+            {
+                slotImage.sprite = defaultSprite;
+            }
+            else
+            {
+                slotImage.sprite = currentItem.data.slotImageSprite;
+            }
             return;
         }
 
+        slotImage.color = Color.clear;
         slotImage.sprite = null;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-       // UI.instance.OnDragItem(this);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (UI.instance.HasDragItem)
-        {
-            Debug.Log("COMBINE: " + UI.instance.DragSlot.currentItem.data.name + " : " + currentItem.data.name, gameObject);
-        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("DRAG THE DOG:" + gameObject.name, gameObject);
+        //Debug.Log("DRAG THE DOG:" + gameObject.name, gameObject);
         UI.instance.OnDragItem(this);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.LogWarning("DRAG THE DOG");
+        //Debug.LogWarning("DRAG THE DOG");
 
     }
 
@@ -76,11 +69,22 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IPointerDownHandler, IDrag
 
     public void OnDraggedOnToo(Slot incomingSlot)
     {
+        if (currentItem == null)
+        {
+            UI.instance.ClearSelection();
+            return;
+        }
+        
         if (UI.instance.HasDragItem)
         {
             UI.instance.Combine(currentItem, incomingSlot.currentItem);
                 
             //Debug.Log("COMBINE: " + incomingSlot.currentItem.data.name + " : " + currentItem.data.name, gameObject);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UI.instance.SetHoverSlot(this);
     }
 }

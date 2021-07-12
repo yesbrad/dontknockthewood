@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MouthSlot : MonoBehaviour, IDropSlot
+public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
 {
     public void OnDraggedOnToo(Slot incomingSlot)
     {
@@ -18,5 +18,10 @@ public class MouthSlot : MonoBehaviour, IDropSlot
                 UI.instance.UnSetSlot(incomingSlot.currentItem);
             }
         }
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UI.instance.SetMouthHoverText(this);
     }
 }

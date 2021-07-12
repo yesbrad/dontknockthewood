@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: COMBOCATALOG
   m_EditorClassIdentifier: 
   Combos:
+  - {fileID: 11400000, guid: 4397d1f36b10c443dab82357486ca553, type: 2}
+  - {fileID: 11400000, guid: 5b86b6ad772f64a3292d6cc361774c06, type: 2}
+  - {fileID: 11400000, guid: e0889c812919640d5a5c1420571a1bb0, type: 2}
+  - {fileID: 11400000, guid: ce1d72aac91f14d25af18381339d1302, type: 2}
+  - {fileID: 11400000, guid: 232472abfcd034fb28c3c3158d8680d9, type: 2}
   - {fileID: 11400000, guid: e752311c4b634450d988cdbc709badb2, type: 2}
-  - {fileID: 11400000, guid: cc08ab5a900844b9baa3ca30d07fc7cd, type: 2}
+  - {fileID: 11400000, guid: 35f825b3ce17449039ca588d2cfcdf0c, type: 2}
+  - {fileID: 11400000, guid: 3662d9e7185d24136a2c91ffc0b5f7c2, type: 2}

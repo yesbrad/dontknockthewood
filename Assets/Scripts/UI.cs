@@ -5,6 +5,7 @@ using Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI ballText;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI comboText;
 
     [Header("DONT TOUCH")]
     public List<Slot> slots = new List<Slot>();
-    private Slot currentSelection;
+    internal Slot currentSelection;
+    private Slot hoverSlot;
 
     public bool HasDragItem => currentSelection != null;
 
@@ -55,6 +58,50 @@ public class UI : MonoBehaviour
         }
     }
 
+    public void SetMouthHoverText(MouthSlot mouth)
+    {
+        if (currentSelection != null 
+            && currentSelection.currentItem != null)
+        {
+            if (currentSelection.currentItem.data.spitball != null)
+            {
+                SetHoverText("Make " + currentSelection.currentItem.data.spitball.name + "s");
+            }
+            else
+            {
+                SetHoverText("YUCK! Not that!");
+            }
+            
+            return;
+        }
+        
+        SetHoverText("Ready to make Spitballs");
+    }
+
+    public void SetHoverSlot(Slot slot)
+    {
+        hoverSlot = slot;
+        string hoverText = slot.HasItem ? slot.currentItem.data.name : "Empty";
+
+        if (currentSelection)
+        {
+            ItemCombo combo = GetCombo(currentSelection.currentItem, slot.currentItem);
+            
+            if(combo)
+                hoverText = currentSelection.currentItem.data.name + " + " + (slot.HasItem ? slot.currentItem.data.name : "Empty") + " = " + combo.comboItem.name;
+            else
+                hoverText = currentSelection.currentItem.data.name + " + " + (slot.HasItem ? slot.currentItem.data.name : "Empty") + " = ?";
+                
+        }
+        
+        SetHoverText(hoverText);
+    }
+    
+    public void SetHoverText(string txt)
+    {
+        comboText.SetText($"{txt}");
+    }
+
     public bool HasSlot()
     {
         return !slots.TrueForAll(slot => slot.HasItem);
@@ -73,6 +120,7 @@ public class UI : MonoBehaviour
         List<RaycastResult> res = new List<RaycastResult>();
         
         EventSystem.current.RaycastAll(data, res);
+        print("ABOUT TO CHECK SLOT");
 
         if (res.Count > 0)
         {
@@ -84,19 +132,32 @@ public class UI : MonoBehaviour
                 {
                     print("FOUND SLOT");
                     dropSlot.OnDraggedOnToo(currentSelection);
+                    ClearSelection();
                     return;
                 }
             }
         }
+        
+        ClearSelection();
     }
-    
-    
-    public bool Combine(Item ingOne, Item ingTwo)
+
+    public void ClearSelection()
     {
+        currentSelection = null;
+    }
+
+    public ItemCombo GetCombo(Item ingOne, Item ingTwo)
+    {
+        if (ingOne == null || ingTwo == null)
+            return null;
+        
         foreach (ItemCombo itemCombo in comboCatalog.Combos)
         {
-            Debug.Log(itemCombo.firstIngredient.name);
-            Debug.Log(itemCombo.secondIngredient.name);
+            if(itemCombo == null)
+                continue;
+            
+            //Debug.Log(itemCombo.firstIngredient.name);
+            //Debug.Log(itemCombo.secondIngredient.name);
 
             bool che1 = ingOne.data.name == itemCombo.firstIngredient.name &&
                         ingTwo.data.name == itemCombo.secondIngredient.name;
@@ -106,19 +167,32 @@ public class UI : MonoBehaviour
             
             if (che1 || che2)
             {
-                //Delete old 2
-                UnSetSlot(ingOne);
-                UnSetSlot(ingTwo);
-                //Make new one
-                Item comboItem = new GameObject("NewCombo: " + itemCombo.comboItem.name).AddComponent<Item>().Create(itemCombo.comboItem);
-                SetSlot(comboItem);
-                
-                return true;
+                return itemCombo;
             }
         }
 
-        Debug.Log("Combine Failed");
-        return false;
+        return null;
+    }
+    
+    public bool Combine(Item ingOne, Item ingTwo)
+    {
+        ItemCombo combo = GetCombo(ingOne, ingTwo);
+
+        if (combo != null)
+        {
+            //Delete old 2
+            UnSetSlot(ingOne);
+            UnSetSlot(ingTwo);
+            //Make new one
+            Item comboItem = new GameObject("NewCombo: " + combo.comboItem.name).AddComponent<Item>().Create(combo.comboItem);
+            SetSlot(comboItem);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Combine Failed");
+            return false;
+        }
     }
 
     public void RefreshSpitUI(Spitball ball)
@@ -136,6 +210,6 @@ public class UI : MonoBehaviour
 
     public void RefreshScoreUI(int score)
     {
-        scoreText.SetText("Score: " + score);
+        scoreText.SetText("" + score);
     }
 }
