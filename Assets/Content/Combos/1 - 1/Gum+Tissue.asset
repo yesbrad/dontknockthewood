@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
-  m_Name: GumPaperCombo
+  m_Name: Gum+Tissue
   m_EditorClassIdentifier: 
   firstIngredient: {fileID: 11400000, guid: 043804716f1124df5aec73cf1187b13f, type: 2}
-  secondIngredient: {fileID: 11400000, guid: 252e7b69725744968b93545bc4d76730, type: 2}
+  secondIngredient: {fileID: 11400000, guid: bee5fd0ae737a452dbb68c2360be4f4a, type: 2}
   comboItem: {fileID: 11400000, guid: a0cf2c95df53a4aa3a9a507cc6d49b9b, type: 2}

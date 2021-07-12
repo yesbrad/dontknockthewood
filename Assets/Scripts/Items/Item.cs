@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
             Debug.LogError("ITEM MISSING DATA", gameObject);
     }
 
-    public bool Select()
+    public virtual bool Select()
     {
         if (IsSelected)
         {
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
         return true;
     }
 
-    private void ToggleRenderer(bool on)
+    protected void ToggleRenderer(bool on)
     {
         var rens = GetComponentsInChildren<Renderer>();
 
@@ -39,5 +39,10 @@ public class Item : MonoBehaviour
         {
             ren.enabled = on;
         }
+    }
+    
+    protected void ToggleRenderer(bool on, Renderer ren)
+    {
+        ren.enabled = on;
     }
 }

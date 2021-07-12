@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e72e726c9946a4940f0cbf249a8111, type: 3}
-  m_Name: GumPaper
+  m_Name: Clogger
   m_EditorClassIdentifier: 
-  name: GumPaper
-  slotImageSprite: {fileID: 21300000, guid: a388f23ed5ca14220a8eb4b4c8d7234a, type: 3}
+  name: The Clogger
+  slotImageSprite: {fileID: 0}
+  spitball: {fileID: 0}

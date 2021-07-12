@@ -13,8 +13,11 @@ public class TeacherHitBox : MonoBehaviour, ISpitballHit
     [Range(1, 5)]
     public float hitScore;
     
+    public string exlemationText = "!";
+
     public void OnHit(Spitball ball)
     {
         GetComponentInParent<Teacher>().GotHit(hitScore, ball);
+        GetComponentInParent<Teacher>().SetExclamation(exlemationText);
     }
 }

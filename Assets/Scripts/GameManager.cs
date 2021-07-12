@@ -9,10 +9,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Spitball currentSpitBall;
+    public int scoreToBeat = 1000;
+    
     public GameObject baseSpitballHitPrefab;
     public GameObject straw;
-    public int scoreToBeat = 1000;
+
+    public GameObject spitballHitPFX;
+    
+    private Spitball currentSpitBall;
 
     private int score;
     
@@ -42,6 +46,10 @@ public class GameManager : MonoBehaviour
                         if (s != null)
                         {
                             s.OnHit(currentSpitBall);
+
+                            var thing = Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);
+                            
+                            Destroy(thing, 5);
                         }
                     }
                     
@@ -86,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         if (!UI.instance.HasSlot())
         {
-            Debug.Log("Trello");
+            Debug.Log("NoSlots");
             return;
         }
         

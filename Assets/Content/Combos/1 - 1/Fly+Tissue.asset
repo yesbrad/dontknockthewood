@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
-  m_Name: GumPapeTissuerCombo
+  m_Name: Fly+Tissue
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 11400000, guid: a0cf2c95df53a4aa3a9a507cc6d49b9b, type: 2}
+  firstIngredient: {fileID: 11400000, guid: 8a3ca9c302d2e435c9df9006881ad945, type: 2}
   secondIngredient: {fileID: 11400000, guid: bee5fd0ae737a452dbb68c2360be4f4a, type: 2}
-  comboItem: {fileID: 11400000, guid: f81e624f80cc84e60b76e99c68008997, type: 2}
+  comboItem: {fileID: 11400000, guid: 3d58d0c704b53469aac36cdbf449a6e9, type: 2}
