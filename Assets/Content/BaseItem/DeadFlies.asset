@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e72e726c9946a4940f0cbf249a8111, type: 3}
   m_Name: DeadFlies
   m_EditorClassIdentifier: 
-  name: DeadFlies
+  name: Dead Fly
   slotImageSprite: {fileID: 21300000, guid: e4db78ad6585c5443bc2d7c6c1830668, type: 3}
   canGoInMouth: 1
   canGoInStraw: 0
