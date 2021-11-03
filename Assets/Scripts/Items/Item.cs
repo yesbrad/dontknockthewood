@@ -64,7 +64,7 @@ public abstract class Item : MonoBehaviour
     {
         _ammo--;
 
-        if (_ammo < 0)
+        if (_ammo <= 0)
         {
             return false;
         }
