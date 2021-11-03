@@ -85,22 +85,19 @@ public class GameManager : MonoBehaviour
 
             if (item)
             {
-                SelectItem(item);
-            }
-        }
-    }
+                if (!UI.instance.HasSlot())
+                {
+                    Debug.Log("NoSlots");
+                    return;
+                }
 
-    private void SelectItem(Item item)
-    {
-        if (!UI.instance.HasSlot())
-        {
-            Debug.Log("NoSlots");
-            return;
-        }
+                Item selectedItem = item.Select();
         
-        if (item.Select())
-        {
-            UI.instance.SetSlot(item);
+                if (selectedItem != null)
+                {
+                    UI.instance.SetSlot(selectedItem);
+                }
+            }
         }
     }
 

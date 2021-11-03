@@ -48,11 +48,6 @@ public class UI : MonoBehaviour
         Debug.LogError("NO MORE SLOTS SOFT LOCKED");
     }
 
-    public void UnSetSlot(Slot slot)
-    {
-        UnSetSlot(slot.slotItem);
-    }
-    
     public void UnSetSlot(Item item)
     {
         foreach (Slot slot in slots)
@@ -194,7 +189,7 @@ public class UI : MonoBehaviour
             //UnSetSlot(ingOne);
             //UnSetSlot(ingTwo);
             //Make new one
-            Item comboItem = new GameObject("NewCombo: " + combo.comboItemData.name).AddComponent<Item>().Create(combo.comboItemData);
+            Item comboItem = new GameObject("NewCombo: " + combo.comboItemData.name).AddComponent<BasicItem>().Create(combo.comboItemData);
             print("Created Combo: " + combo.comboItemData.name);
             SetSlot(comboItem);
             return true;

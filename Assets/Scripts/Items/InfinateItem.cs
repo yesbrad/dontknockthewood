@@ -18,7 +18,7 @@ public class InfinateItem : Item
         if(hasTimeRendererTimeout)
             StartCoroutine(Timeout());
 
-        Item newItem = Instantiate(this, Vector3.down * 100, Quaternion.identity);
+        Item newItem = new GameObject("ITEM: " + data.name).AddComponent<BasicItem>();
         newItem.Create(data);
         
         return newItem;

@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
 {
+    [SerializeField] private Image firstSlotImage;
+    [SerializeField] private Image secondSlotImage;
+    
     internal Item firstSlot;
     internal Item secondSlot;
     
     public void OnDraggedOnToo(Slot incomingSlot)
     {
-        print("Draggin on m0uth");
+//        print("Draggin on m0uth");
         
         if (UI.instance.HasDragItem)
         {
@@ -23,7 +26,8 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
                 {
                     // Add UI second slot UI
                     secondSlot = incomingSlot.slotItem;
-                    
+                    print("Eat Second slot");
+
                     //Play mouth animation
                     
                     // Change text to easting
@@ -32,7 +36,7 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
                     if (UI.instance.Combine(firstSlot, secondSlot))
                     {
                         // YUM Test
-                        UI.instance.UnSetSlot(incomingSlot);
+                        UI.instance.UnSetSlot(secondSlot);
                         firstSlot = null;
                         secondSlot = null;
                     }
@@ -46,15 +50,39 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
                 }
                 else
                 {
-                    UI.instance.UnSetSlot(incomingSlot);
+                    firstSlot = incomingSlot.slotItem;
+                    UI.instance.UnSetSlot(firstSlot);
                     print("Eat first slot");
                     //add to first slot
-                    firstSlot = incomingSlot.slotItem;
                     //Update Mouth Slot UI
                 }
                 
-                UI.instance.UnSetSlot(incomingSlot.slotItem);
+                RefreshUI();
+                
             }
+        }
+    }
+
+    public void RefreshUI()
+    {
+        if (firstSlot != null)
+        {
+            firstSlotImage.color = Color.white;
+            firstSlotImage.sprite = firstSlot.data.slotImageSprite;
+        }
+        else
+        {
+            firstSlotImage.color = Color.clear;
+        }
+        
+        if (secondSlot != null)
+        {
+            secondSlotImage.color = Color.white;
+            secondSlotImage.sprite = secondSlot.data.slotImageSprite;
+        }
+        else
+        {
+            secondSlotImage.color = Color.clear;
         }
     }
     

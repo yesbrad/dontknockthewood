@@ -25,6 +25,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void UnSet()
     {
         slotItem = null;
+        Debug.Log("UNSEEET PLZ");
         RefreshUI();
     }
 
