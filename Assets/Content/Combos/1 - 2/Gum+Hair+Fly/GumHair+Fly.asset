@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
   m_Name: GumHair+Fly
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 0}
-  secondIngredient: {fileID: 0}
-  comboItemData: {fileID: 0}
+  firstIngredient: {fileID: 11400000, guid: f81e624f80cc84e60b76e99c68008997, type: 2}
+  secondIngredient: {fileID: 11400000, guid: 8a3ca9c302d2e435c9df9006881ad945, type: 2}
+  comboItemData: {fileID: 11400000, guid: 2a5714faaf5204ad9b4cd11bbb390734, type: 2}
