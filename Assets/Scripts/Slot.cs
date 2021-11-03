@@ -33,16 +33,9 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         slotImage.color = Color.white;
         
-        if (slotItem)
+        if (slotItem != null)
         {
-            if (slotItem.data.slotImageSprite == null)
-            {
-                slotImage.sprite = defaultSprite;
-            }
-            else
-            {
-                slotImage.sprite = slotItem.data.slotImageSprite;
-            }
+            slotImage.sprite = slotItem.data.slotImageSprite;
             return;
         }
 
@@ -65,7 +58,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         UI.instance.CheckForSlotOnRelease(eventData);
-        Debug.Log("EENNND THE DOG: "+ gameObject.name, gameObject);
+        //Debug.Log("EENNND THE DOG: "+ gameObject.name, gameObject);
     }
 
     public void OnDraggedOnToo(Slot incomingSlot)
@@ -86,6 +79,6 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UI.instance.SetHoverSlot(this);
+        //UI.instance.SetHoverSlot(this);
     }
 }

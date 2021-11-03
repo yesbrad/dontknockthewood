@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Items;
 using TMPro;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public static UI instance;
-    public Catalog comboCatalog;
+    public ItemCombo[] combos;
 
     public TextMeshProUGUI ballText;
     public TextMeshProUGUI ammoText;
@@ -32,6 +33,7 @@ public class UI : MonoBehaviour
         slots = GetComponentsInChildren<Slot>().ToList();
         RefreshSpitUI(null);
         RefreshScoreUI(0);
+        combos = ResourcesExtension.Load("/Combos");
     }
 
     public void SetSlot(Item item)
@@ -52,6 +54,8 @@ public class UI : MonoBehaviour
     {
         foreach (Slot slot in slots)
         {
+            if(slot.slotItem == null) continue;
+            
             if (slot.slotItem.UUID == item.UUID)
             {
                 slot.UnSet();
@@ -60,48 +64,6 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void SetMouthHoverText(MouthSlot mouth)
-    {
-        if (mouth.firstSlot == null)
-        {
-            SetHoverText("Ready to Eat");
-            return;
-        }
-        
-        if (currentSelection)
-        {
-            ItemCombo combo = GetCombo(currentSelection.slotItem, mouth.firstSlot);
-            
-            if(combo)
-                SetHoverText(currentSelection.slotItem.data.name + " + " + mouth.firstSlot.data.name + " = " + combo.comboItemData.name);
-            else
-                SetHoverText("YUCK! That's Not Gonna Work..");
-                
-        }
-    }
-
-    public void SetHoverSlot(Slot slot)
-    {
-     SetHoverText(currentSelection.slotItem.data.name);   
-    /*
-        hoverSlot = slot;
-        string hoverText = slot.HasItem ? slot.slotItem.data.name : "Empty";
-
-        if (currentSelection)
-        {
-            ItemCombo combo = GetCombo(currentSelection.slotItem, slot.slotItem);
-            
-            if(combo)
-                hoverText = currentSelection.slotItem.data.name + " + " + (slot.HasItem ? slot.slotItem.data.name : "Empty") + " = " + combo.comboItem.name;
-            else
-                hoverText = currentSelection.slotItem.data.name + " + " + (slot.HasItem ? slot.slotItem.data.name : "Empty") + " = ?";
-                
-        }
-        
-        SetHoverText(hoverText);
-    */
-    }
-    
     public void SetHoverText(string txt)
     {
         comboText.SetText($"{txt}");
@@ -156,7 +118,7 @@ public class UI : MonoBehaviour
         if (ingOne == null || ingTwo == null)
             return null;
         
-        foreach (ItemCombo itemCombo in comboCatalog.Combos)
+        foreach (ItemCombo itemCombo in combos)
         {
             if(itemCombo == null)
                 continue;
@@ -217,5 +179,31 @@ public class UI : MonoBehaviour
     public void RefreshScoreUI(int score)
     {
         scoreText.SetText("" + score);
+    }
+
+    public class ResourcesExtension
+    {
+        public static string ResourcesPath = Application.dataPath + "/Resources";
+
+        public static ItemCombo[] Load(string resourceName)
+        {
+            string[] directories = Directory.GetDirectories(ResourcesPath, "*", SearchOption.AllDirectories);
+            List<ItemCombo> data = new List<ItemCombo>();
+
+            foreach (var item in directories)
+            {
+                string itemPath = item.Substring(ResourcesPath.Length + 1);
+                ItemCombo result = Resources.Load<ItemCombo>(itemPath);
+
+                if (result.GetType() == typeof(ItemCombo))
+                {
+                    Debug.Log(result.firstIngredient.name);
+                    data.Add(result);
+                }
+                
+            }
+
+            return data.ToArray();
+        }
     }
 }
