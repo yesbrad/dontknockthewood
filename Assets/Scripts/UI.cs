@@ -76,7 +76,7 @@ public class UI : MonoBehaviour
     public void OnDragItem(Slot slot)
     {
         currentSelection = slot;
-        Debug.Log("DragingItem: " + slot.slotItem.data.name);
+        SetHoverText(slot.slotItem.data.name);
     }
     
     

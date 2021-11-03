@@ -25,7 +25,6 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void UnSet()
     {
         slotItem = null;
-        Debug.Log("UNSEEET PLZ");
         RefreshUI();
     }
 
@@ -63,22 +62,12 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnDraggedOnToo(Slot incomingSlot)
     {
-        if (slotItem == null)
-        {
-            //UI.instance.DeSelect();
-            //return;
-        }
         
-        if (UI.instance.HasDragItem)
-        {
-            //UI.instance.Combine(currentItem, incomingSlot.currentItem);
-                
-            //Debug.Log("COMBINE: " + incomingSlot.currentItem.data.name + " : " + currentItem.data.name, gameObject);
-        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //UI.instance.SetHoverSlot(this);
+        if(UI.instance.currentSelection == false)
+            UI.instance.SetHoverText(slotItem == null ? "Empty" : slotItem.data.name);
     }
 }

@@ -93,6 +93,12 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
 
         if (currentSelection)
         {
+            if (secondSlot == null)
+            {
+                UI.instance.SetHoverText("Eat");
+                return;
+            }
+            
             ItemCombo combo = UI.instance.GetCombo(currentSelection.slotItem, firstSlot);
 
             if (combo)
