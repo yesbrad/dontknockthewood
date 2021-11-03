@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
 {
-    public Item firstSlot;
-    public Item secondSlot;
+    [SerializeField] private Image firstSlotImage;
+    [SerializeField] private Image secondSlotImage;
+    
+    internal Item firstSlot;
+    internal Item secondSlot;
     
     public void OnDraggedOnToo(Slot incomingSlot)
     {
@@ -54,7 +57,32 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler
                     //Update Mouth Slot UI
                 }
                 
+                RefreshUI();
+                
             }
+        }
+    }
+
+    public void RefreshUI()
+    {
+        if (firstSlot != null)
+        {
+            firstSlotImage.color = Color.white;
+            firstSlotImage.sprite = firstSlot.data.slotImageSprite;
+        }
+        else
+        {
+            firstSlotImage.color = Color.clear;
+        }
+        
+        if (secondSlot != null)
+        {
+            secondSlotImage.color = Color.white;
+            secondSlotImage.sprite = secondSlot.data.slotImageSprite;
+        }
+        else
+        {
+            secondSlotImage.color = Color.clear;
         }
     }
     
