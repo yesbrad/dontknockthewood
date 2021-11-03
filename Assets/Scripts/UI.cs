@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public static UI instance;
-    public ItemCombo[] combos;
+    public Catalog combos;
 
     public TextMeshProUGUI ballText;
     public TextMeshProUGUI ammoText;
@@ -33,7 +33,6 @@ public class UI : MonoBehaviour
         slots = GetComponentsInChildren<Slot>().ToList();
         RefreshSpitUI(null);
         RefreshScoreUI(0);
-        combos = ResourcesExtension.Load("/Combos");
     }
 
     public void SetSlot(Item item)
@@ -118,7 +117,7 @@ public class UI : MonoBehaviour
         if (ingOne == null || ingTwo == null)
             return null;
         
-        foreach (ItemCombo itemCombo in combos)
+        foreach (ItemCombo itemCombo in combos.Combos)
         {
             if(itemCombo == null)
                 continue;
@@ -179,31 +178,5 @@ public class UI : MonoBehaviour
     public void RefreshScoreUI(int score)
     {
         scoreText.SetText("" + score);
-    }
-
-    public class ResourcesExtension
-    {
-        public static string ResourcesPath = Application.dataPath + "/Resources";
-
-        public static ItemCombo[] Load(string resourceName)
-        {
-            string[] directories = Directory.GetDirectories(ResourcesPath, "*", SearchOption.AllDirectories);
-            List<ItemCombo> data = new List<ItemCombo>();
-
-            foreach (var item in directories)
-            {
-                string itemPath = item.Substring(ResourcesPath.Length + 1);
-                ItemCombo result = Resources.Load<ItemCombo>(itemPath);
-
-                if (result.GetType() == typeof(ItemCombo))
-                {
-                    Debug.Log(result.firstIngredient.name);
-                    data.Add(result);
-                }
-                
-            }
-
-            return data.ToArray();
-        }
     }
 }

@@ -853,6 +853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSlotImage: {fileID: 2189901140912172825}
   secondSlotImage: {fileID: 9101312561084378327}
+  firstSlot: {fileID: 0}
+  secondSlot: {fileID: 0}
 --- !u!1 &886434940120866296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ac6f232b114f10b5d1d3f7d75983d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboCatalog: {fileID: 11400000, guid: b3e7bd0a867744241af5fffe15328bf3, type: 2}
+  combos: {fileID: 11400000, guid: b3e7bd0a867744241af5fffe15328bf3, type: 2}
   ballText: {fileID: 886434941080159488}
   ammoText: {fileID: 886434940886892228}
   scoreText: {fileID: 7619825071945508975}

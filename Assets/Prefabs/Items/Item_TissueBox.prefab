@@ -112,7 +112,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: bee5fd0ae737a452dbb68c2360be4f4a, type: 2}
   hasTimeRendererTimeout: 1
   timoutForRenderer: 0.5
-  SelectRenderer: {fileID: 0}
+  SelectRenderer: {fileID: 6324776139875645674}
 --- !u!1 &8369113728164563555
 GameObject:
   m_ObjectHideFlags: 0
