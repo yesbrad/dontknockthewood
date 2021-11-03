@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdacc179a4840faba6380719a184b20, type: 3}
-  m_Name: DesignBible
+  m_Name: DesignBible_Level3
   m_EditorClassIdentifier: 
-  scoreToBeat: 1000
+  scoreToBeat: 300
   baseHitScore: 10
-  eatNoCombo: I knew that would be gross
-  eatCombo: YUMMM
-  dragNoCombo: YUCK! That's Not Gonna Work..
+  eatAnimationTime: 1.2
+  eatNoCombo: Yuck! Those won't go together.
+  eatCombo: Let's see Mr Woods' face when this hits him!
+  dragNoCombo: Yuck! Those won't go together.

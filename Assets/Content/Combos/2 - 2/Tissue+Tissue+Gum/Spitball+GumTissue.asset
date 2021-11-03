@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
-  m_Name: Spitball+
+  m_Name: Spitball+GumTissue
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 0}
-  secondIngredient: {fileID: 0}
-  comboItemData: {fileID: 0}
+  firstIngredient: {fileID: 11400000, guid: 9acc9225d135fa844b7de4891f01ab38, type: 2}
+  secondIngredient: {fileID: 11400000, guid: d8996b9e7adab4df4ae954b52fb610a8, type: 2}
+  comboItemData: {fileID: 11400000, guid: a0cf2c95df53a4aa3a9a507cc6d49b9b, type: 2}
