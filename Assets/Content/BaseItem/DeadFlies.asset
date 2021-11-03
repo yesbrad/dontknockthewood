@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: DeadFlies
   m_EditorClassIdentifier: 
   name: DeadFlies
-  slotImageSprite: {fileID: 0}
-  spitball: {fileID: 0}
+  slotImageSprite: {fileID: 21300000, guid: e4db78ad6585c5443bc2d7c6c1830668, type: 3}
+  canGoInMouth: 1
+  canGoInStraw: 0
+  startAmmo: 0
+  scoreMultiplier: 0
+  BallColor: {r: 0, g: 0, b: 0, a: 0}

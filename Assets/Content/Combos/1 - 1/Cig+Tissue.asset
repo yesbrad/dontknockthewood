@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstIngredient: {fileID: 11400000, guid: bee5fd0ae737a452dbb68c2360be4f4a, type: 2}
   secondIngredient: {fileID: 11400000, guid: a9af021a945354549868366ef2597cf3, type: 2}
-  comboItem: {fileID: 11400000, guid: 36ef459bd44d3404985dab5db8e82d2d, type: 2}
+  comboItemData: {fileID: 11400000, guid: 81581916298b24619846a4e7c32a0fa8, type: 2}

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Chemical
   m_EditorClassIdentifier: 
   name: Chemical
-  slotImageSprite: {fileID: 0}
-  spitball: {fileID: 0}
+  slotImageSprite: {fileID: 21300000, guid: 4b34c826ae96eec4a9100001600142bf, type: 3}
+  canGoInMouth: 1
+  canGoInStraw: 0
+  startAmmo: 0
+  scoreMultiplier: 0
+  BallColor: {r: 0, g: 0, b: 0, a: 0}

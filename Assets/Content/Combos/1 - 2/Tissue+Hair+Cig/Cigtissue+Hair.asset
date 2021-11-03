@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
+  m_Name: Cigtissue+Hair
+  m_EditorClassIdentifier: 
+  firstIngredient: {fileID: 11400000, guid: 81581916298b24619846a4e7c32a0fa8, type: 2}
+  secondIngredient: {fileID: 11400000, guid: 3a48944dac56f40cc8ab3b213683d2b3, type: 2}
+  comboItemData: {fileID: 11400000, guid: 8197f3d326219db4194684ad071b584e, type: 2}
