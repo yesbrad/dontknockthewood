@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int scoreToBeat = 1000;
+
+    public Animator impulseAnimator;
     
     public GameObject baseSpitballHitPrefab;
     public GameObject straw;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
                         if (s != null)
                         {
                             s.OnHit(currentSpitBall);
+                            impulseAnimator?.SetTrigger("Shoot");
                             Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);                    
                         }
                     }

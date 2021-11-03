@@ -198,7 +198,7 @@ Transform:
   m_LocalPosition: {x: 4.5, y: 1.46, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 48778138112990824}
+  - {fileID: 2557948920570228488}
   m_Father: {fileID: 7283024492382164466}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -229,12 +229,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48778138112990829}
-  m_LocalRotation: {x: 0.08719924, y: 0, z: 0, w: 0.99619097}
+  m_LocalRotation: {x: 0.08719924, y: -0, z: -0, w: 0.99619097}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 48778137679555640}
-  m_Father: {fileID: 48778138102765874}
+  m_Father: {fileID: 2557948920570228488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10.005, y: 0, z: 0}
 --- !u!20 &48778138112990831
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.1 - up to date.
   sections: 01010100
-  customRes: {x: 151, y: 85}
+  customRes: {x: 240, y: 135}
   resolutionFactor: 7
   limitFramerate: -1
   skipFrames: 0
@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToBeat: 10000
+  impulseAnimator: {fileID: 8311737450741222792}
   baseSpitballHitPrefab: {fileID: 0}
   straw: {fileID: 48778137679555647}
   spitballHitPFX: {fileID: 7292661600980639899, guid: f67858f2ea18641d5b42caab40b39da7, type: 3}
@@ -1895,6 +1896,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.01
+--- !u!1 &2847924982216533935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2557948920570228488}
+  - component: {fileID: 8311737450741222792}
+  m_Layer: 0
+  m_Name: CameraImpulse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2557948920570228488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847924982216533935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 48778138112990824}
+  m_Father: {fileID: 48778138102765874}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8311737450741222792
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847924982216533935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e284e49c674643b5b8f120efb9f3ff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3414481134803561466
 GameObject:
   m_ObjectHideFlags: 0
