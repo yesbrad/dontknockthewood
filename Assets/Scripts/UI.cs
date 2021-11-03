@@ -113,6 +113,9 @@ public class UI : MonoBehaviour
     public void DeSelect()
     {
         // Move UI back to slot
+        if(currentSelection != null)
+            currentSelection.ResetPosition();
+        
         currentSelection = null;
     }
 
