@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     
     private Item strawItem;
 
+    public bool IsEquipped => strawItem != null;
+
     private int score;
     
     private void Start()

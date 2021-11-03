@@ -78,6 +78,7 @@
      <Compile Include="Assets\Packages\PSXEffects\Example\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\UI.cs" />
      <Compile Include="Assets\Scripts\Teacher.cs" />
+     <Compile Include="Assets\Scripts\StrawSlot.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
