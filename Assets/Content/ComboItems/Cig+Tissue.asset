@@ -16,6 +16,6 @@ MonoBehaviour:
   slotImageSprite: {fileID: 21300000, guid: cf5e7e751d8bbad4bbc2fa007df48b1a, type: 3}
   canGoInMouth: 1
   canGoInStraw: 1
-  startAmmo: 0
-  scoreMultiplier: 0
+  startAmmo: 1
+  scoreMultiplier: 3
   BallColor: {r: 0, g: 0, b: 0, a: 0}
