@@ -17,5 +17,5 @@ MonoBehaviour:
   canGoInMouth: 1
   canGoInStraw: 1
   startAmmo: 5
-  scoreMultiplier: 1.29
+  scoreMultiplier: 1
   BallColor: {r: 0, g: 0, b: 0, a: 0}
