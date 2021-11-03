@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
   m_Name: HairFly+Gum
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 0}
-  secondIngredient: {fileID: 0}
-  comboItemData: {fileID: 0}
+  firstIngredient: {fileID: 11400000, guid: a33354a9e531c4e2689e7d8d5637adc3, type: 2}
+  secondIngredient: {fileID: 11400000, guid: 043804716f1124df5aec73cf1187b13f, type: 2}
+  comboItemData: {fileID: 11400000, guid: 2a5714faaf5204ad9b4cd11bbb390734, type: 2}

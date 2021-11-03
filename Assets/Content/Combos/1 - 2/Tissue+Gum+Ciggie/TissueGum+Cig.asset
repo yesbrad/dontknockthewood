@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
   m_Name: TissueGum+Cig
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 0}
-  secondIngredient: {fileID: 0}
-  comboItemData: {fileID: 0}
+  firstIngredient: {fileID: 11400000, guid: 9acc9225d135fa844b7de4891f01ab38, type: 2}
+  secondIngredient: {fileID: 11400000, guid: a9af021a945354549868366ef2597cf3, type: 2}
+  comboItemData: {fileID: 11400000, guid: db93c1fe0f97f58439d5d64133440452, type: 2}

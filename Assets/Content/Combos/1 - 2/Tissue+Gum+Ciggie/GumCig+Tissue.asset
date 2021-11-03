@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0998f087a294b4f8be64008f995742b, type: 3}
   m_Name: GumCig+Tissue
   m_EditorClassIdentifier: 
-  firstIngredient: {fileID: 0}
-  secondIngredient: {fileID: 0}
-  comboItemData: {fileID: 0}
+  firstIngredient: {fileID: 11400000, guid: 397f55789a24448ae8dd372200ba6bfb, type: 2}
+  secondIngredient: {fileID: 11400000, guid: bee5fd0ae737a452dbb68c2360be4f4a, type: 2}
+  comboItemData: {fileID: 11400000, guid: db93c1fe0f97f58439d5d64133440452, type: 2}
