@@ -9,37 +9,42 @@ public class StrawSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
     public void OnDraggedOnToo(Slot incomingSlot)
     {
         //print("Draggin on m0uth");
-        
-        if(GameManager.instance.IsEquipped) return;
 
-        if (incomingSlot.slotItem.data.canGoInStraw)
+       // OnDrag(incomingSlot);
+    }
+
+    public void OnDrag(Item slotItem)
+    {
+        if (GameManager.instance.IsEquipped) return;
+
+        if (slotItem.data.canGoInStraw)
         {
             //Play Loading Sound
-            GameManager.instance.AddBall(incomingSlot.slotItem);
-            UI.instance.UnSetSlot(incomingSlot.slotItem);
+            GameManager.instance.AddBall(slotItem);
+            UI.instance.UnSetSlot(slotItem);
         }
-
     }
-    
-    
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         var currentSelection = UI.instance.currentSelection;
 
         if (GameManager.instance.IsEquipped)
         {
-            UI.instance.SetHoverText("Already Loaded");
+            UI.instance.SetHoverText("Loaded");
             return;
         }
 
         if (currentSelection)
         {
-            UI.instance.SetHoverText("Use " + UI.instance.currentSelection.slotItem.data.name);
+            //UI.instance.SetHoverText("Use " + UI.instance.currentSelection.slotItem.data.name);
         }
         else
         {
-            UI.instance.SetHoverText("Straw");
         }
+        
+        UI.instance.SetHoverText("Straw");
         
     }
 

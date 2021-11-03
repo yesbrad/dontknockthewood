@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Teacher : MonoBehaviour
 {
-    public int baseHitScore = 100;
     public TextMeshProUGUI exlemationMarkText;
     [SerializeField] private float exlemationTextTimoutTime = 1f;
 
@@ -19,7 +18,7 @@ public class Teacher : MonoBehaviour
 
     public void GotHit(float amt, Item item)
     {
-        GameManager.instance.AddScore((int)(amt * baseHitScore * item.data.scoreMultiplier));
+        GameManager.instance.AddScore((int)(amt * GameManager.instance.bible.baseHitScore * item.data.scoreMultiplier));
     }
     
     public void SetExclamation(string character = "!")

@@ -79,6 +79,8 @@
      <Compile Include="Assets\Scripts\UI.cs" />
      <Compile Include="Assets\Scripts\Teacher.cs" />
      <Compile Include="Assets\Scripts\StrawSlot.cs" />
+     <Compile Include="Assets\Scripts\Items\DesignBible.cs" />
+     <Compile Include="Assets\Scripts\BibleManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

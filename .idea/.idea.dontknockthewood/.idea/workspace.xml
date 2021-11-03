@@ -26,17 +26,19 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/SpitballData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spitball.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teacher.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TeacherHitBox.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ExlemationHitBox.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemCombo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/InfinateItem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MouthSlot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Slot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StrawSlot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BibleManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MouthSlot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Items/DesignBible.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teacher.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1v5Lza84Bz9XM4Llr9kmfjnybKu" />

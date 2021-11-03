@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int scoreToBeat = 1000;
 
     public Animator impulseAnimator;
     
@@ -20,6 +19,8 @@ public class GameManager : MonoBehaviour
     
     private Item strawItem;
 
+    public DesignBible bible;
+
     public bool IsEquipped => strawItem != null;
 
     private int score;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         instance = this;
+        bible = FindObjectOfType<BibleManager>().bible;
     }
 
     private void Update()
@@ -117,7 +119,7 @@ public class GameManager : MonoBehaviour
         
         UI.instance.RefreshScoreUI(score);
 
-        if (score >= scoreToBeat)
+        if (score >= bible.scoreToBeat)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

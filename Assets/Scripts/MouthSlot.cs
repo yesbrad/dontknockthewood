@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private Sprite openSprite;
+    [SerializeField] private Sprite closedSprite;
+    
     [SerializeField] private Image firstSlotImage;
     [SerializeField] private Image secondSlotImage;
     
@@ -34,14 +37,13 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             if (UI.instance.Combine(firstSlot, secondSlot))
             {
                 // YUM Test
-                UI.instance.UnSetSlot(secondSlot);
                 firstSlot = null;
                 secondSlot = null;
             }
             else
             {
                 //Cant eat that text\
-                UI.instance.SetHoverText("I knew that would be gross");
+                UI.instance.SetHoverText(GameManager.instance.bible.eatNoCombo);
                 UI.instance.DeSelect();
                 secondSlot = null;
             }
@@ -53,13 +55,18 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             print("Eat first slot");
             firstSlot = incomingSlot.slotItem;
             UI.instance.UnSetSlot(firstSlot);
-            UI.instance.SetHoverText("YUMMMMMMMM");
+            UI.instance.SetHoverText(GameManager.instance.bible.eatCombo);
             //add to first slot
             //Update Mouth Slot UI
         }
             
         RefreshUI();
 
+    }
+
+    public void SetMouthState(bool open)
+    {
+        
     }
 
     public void RefreshUI()
@@ -109,7 +116,7 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             else
             {
                 //close mouth
-                UI.instance.SetHoverText("YUCK! That's Not Gonna Work..");
+                UI.instance.SetHoverText(GameManager.instance.bible.dragNoCombo);
             }
                 
         }

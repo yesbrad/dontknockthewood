@@ -144,15 +144,18 @@ public class UI : MonoBehaviour
     {
         ItemCombo combo = GetCombo(ingOne, ingTwo);
 
+        if (GameManager.instance.IsEquipped) return false;
+        
         if (combo != null)
         {
             //Delete old 2
-            //UnSetSlot(ingOne);
-            //UnSetSlot(ingTwo);
+            UnSetSlot(ingOne);
+            UnSetSlot(ingTwo);
             //Make new one
             Item comboItem = new GameObject("NewCombo: " + combo.comboItemData.name).AddComponent<BasicItem>().Create(combo.comboItemData);
             print("Created Combo: " + combo.comboItemData.name);
-            SetSlot(comboItem);
+            //SetSlot(comboItem);
+            FindObjectOfType<StrawSlot>().OnDrag(comboItem);
             return true;
         }
         else
