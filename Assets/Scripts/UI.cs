@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Items;
+using Slots;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,8 @@ public class UI : MonoBehaviour
 {
     public static UI instance;
     public Catalog combos;
+
+    [SerializeField] private GameObject slotGroup;
 
     public TextMeshProUGUI ballText;
     public TextMeshProUGUI ammoText;
@@ -30,7 +33,7 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        slots = GetComponentsInChildren<Slot>().ToList();
+        slots = slotGroup.GetComponentsInChildren<Slot>().ToList();
         RefreshSpitUI(null);
         RefreshScoreUI(0);
     }
@@ -156,7 +159,7 @@ public class UI : MonoBehaviour
             Item comboItem = new GameObject("NewCombo: " + combo.comboItemData.name).AddComponent<BasicItem>().Create(combo.comboItemData);
             print("Created Combo: " + combo.comboItemData.name);
             //SetSlot(comboItem);
-            FindObjectOfType<StrawSlot>().OnDrag(comboItem);
+            FindObjectOfType<ComboSlot>().Set(comboItem);
             return true;
         }
         else

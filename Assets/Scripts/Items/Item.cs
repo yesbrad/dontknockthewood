@@ -12,6 +12,7 @@ public abstract class Item : MonoBehaviour
     private int _ammo;
 
     public int Ammo => _ammo;
+    public bool HasAmmo => _ammo > 0;
 
     public Item Create(ItemData newItem)
     {

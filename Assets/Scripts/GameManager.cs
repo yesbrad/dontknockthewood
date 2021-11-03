@@ -17,11 +17,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject spitballHitPFX;
     
-    private Item strawItem;
+    private Item currentStrawItem;
+    public Item CurrentStrawItem => currentStrawItem;
 
     public DesignBible bible;
 
-    public bool IsEquipped => strawItem != null;
+    public bool IsEquipped => currentStrawItem != null;
 
     private int score;
     
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviour
         {
             //FIRE!!!
             
-            if (strawItem != null)
+            if (currentStrawItem != null)
             {
-                if (strawItem.Use())
+                if (currentStrawItem.Use())
                 {
                     RaycastHit hit;
 
@@ -51,20 +52,22 @@ public class GameManager : MonoBehaviour
 
                         if (s != null)
                         {
-                            s.OnHit(strawItem);
+                            s.OnHit(currentStrawItem);
                             impulseAnimator?.SetTrigger("Shoot");
                             Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);                    
                         }
                     }
                     
-                    UI.instance.RefreshSpitUI(strawItem);
+                    UI.instance.RefreshSpitUI(currentStrawItem);
                 }
                 else
                 {
                     // NO AMMO
-                    strawItem = null;
+                    currentStrawItem = null;
                     UI.instance.RefreshSpitUI(null);
                 }
+                
+                FindObjectOfType<StrawSlot>().RefreshUI();
             }
         }
 
@@ -107,8 +110,8 @@ public class GameManager : MonoBehaviour
 
     public void AddBall(Item item)
     {
-        strawItem = item;
-        UI.instance.RefreshSpitUI(strawItem);
+        currentStrawItem = item;
+        UI.instance.RefreshSpitUI(currentStrawItem);
     }
 
     public void AddScore(int amt)

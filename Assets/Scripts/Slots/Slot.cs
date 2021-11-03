@@ -10,7 +10,6 @@ public interface IDropSlot
 
 public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropSlot, IPointerEnterHandler
 {
-    public Sprite defaultSprite;
     public Image slotImage;
     internal Item slotItem;
 

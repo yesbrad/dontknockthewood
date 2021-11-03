@@ -1,16 +1,17 @@
 using System;
 using Items;
+using Slots;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class StrawSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointerExitHandler
 {
+    public Image equippedImage;
+    
     public void OnDraggedOnToo(Slot incomingSlot)
     {
-        //print("Draggin on m0uth");
-
-       // OnDrag(incomingSlot);
+        OnDrag(incomingSlot.slotItem);
     }
 
     public void OnDrag(Item slotItem)
@@ -21,7 +22,27 @@ public class StrawSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
         {
             //Play Loading Sound
             GameManager.instance.AddBall(slotItem);
+            RefreshUI();
             UI.instance.UnSetSlot(slotItem);
+            FindObjectOfType<ComboSlot>().UnSet();
+        }
+        else
+        {
+            UI.instance.DeSelect();
+        }
+    }
+
+    public void RefreshUI()
+    {
+        if (GameManager.instance.IsEquipped && GameManager.instance.CurrentStrawItem.HasAmmo)
+        {
+            equippedImage.color = Color.white;
+            equippedImage.sprite = GameManager.instance.CurrentStrawItem.data.slotImageSprite;
+        }
+        else
+        {
+            equippedImage.sprite = null;
+            equippedImage.color = Color.clear;
         }
     }
 
