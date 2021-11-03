@@ -44,13 +44,20 @@ public class UI : MonoBehaviour
                 return;
             }
         }
+        
+        Debug.LogError("NO MORE SLOTS SOFT LOCKED");
+    }
+
+    public void UnSetSlot(Slot slot)
+    {
+        UnSetSlot(slot.slotItem);
     }
     
     public void UnSetSlot(Item item)
     {
         foreach (Slot slot in slots)
         {
-            if (slot.currentItem == item)
+            if (slot.slotItem.UUID == item.UUID)
             {
                 slot.UnSet();
                 return;
@@ -60,41 +67,44 @@ public class UI : MonoBehaviour
 
     public void SetMouthHoverText(MouthSlot mouth)
     {
-        if (currentSelection != null 
-            && currentSelection.currentItem != null)
+        if (mouth.firstSlot == null)
         {
-            if (currentSelection.currentItem.data.spitball != null)
-            {
-                SetHoverText("Make " + currentSelection.currentItem.data.spitball.name + "s");
-            }
-            else
-            {
-                SetHoverText("YUCK! Not that!");
-            }
-            
+            SetHoverText("Ready to Eat");
             return;
         }
         
-        SetHoverText("Ready to make Spitballs");
+        if (currentSelection)
+        {
+            ItemCombo combo = GetCombo(currentSelection.slotItem, mouth.firstSlot);
+            
+            if(combo)
+                SetHoverText(currentSelection.slotItem.data.name + " + " + mouth.firstSlot.data.name + " = " + combo.comboItemData.name);
+            else
+                SetHoverText("YUCK! That's Not Gonna Work..");
+                
+        }
     }
 
     public void SetHoverSlot(Slot slot)
     {
+     SetHoverText(currentSelection.slotItem.data.name);   
+    /*
         hoverSlot = slot;
-        string hoverText = slot.HasItem ? slot.currentItem.data.name : "Empty";
+        string hoverText = slot.HasItem ? slot.slotItem.data.name : "Empty";
 
         if (currentSelection)
         {
-            ItemCombo combo = GetCombo(currentSelection.currentItem, slot.currentItem);
+            ItemCombo combo = GetCombo(currentSelection.slotItem, slot.slotItem);
             
             if(combo)
-                hoverText = currentSelection.currentItem.data.name + " + " + (slot.HasItem ? slot.currentItem.data.name : "Empty") + " = " + combo.comboItem.name;
+                hoverText = currentSelection.slotItem.data.name + " + " + (slot.HasItem ? slot.slotItem.data.name : "Empty") + " = " + combo.comboItem.name;
             else
-                hoverText = currentSelection.currentItem.data.name + " + " + (slot.HasItem ? slot.currentItem.data.name : "Empty") + " = ?";
+                hoverText = currentSelection.slotItem.data.name + " + " + (slot.HasItem ? slot.slotItem.data.name : "Empty") + " = ?";
                 
         }
         
         SetHoverText(hoverText);
+    */
     }
     
     public void SetHoverText(string txt)
@@ -110,7 +120,7 @@ public class UI : MonoBehaviour
     public void OnDragItem(Slot slot)
     {
         currentSelection = slot;
-        Debug.Log("DragingItem: " + slot.currentItem.data.name);
+        Debug.Log("DragingItem: " + slot.slotItem.data.name);
     }
     
     
@@ -120,7 +130,6 @@ public class UI : MonoBehaviour
         List<RaycastResult> res = new List<RaycastResult>();
         
         EventSystem.current.RaycastAll(data, res);
-        print("ABOUT TO CHECK SLOT");
 
         if (res.Count > 0)
         {
@@ -130,19 +139,20 @@ public class UI : MonoBehaviour
 
                 if (dropSlot != null)
                 {
-                    print("FOUND SLOT");
+                    //print("FOUND SLOT");
                     dropSlot.OnDraggedOnToo(currentSelection);
-                    ClearSelection();
+                    DeSelect();
                     return;
                 }
             }
         }
         
-        ClearSelection();
+        DeSelect();
     }
 
-    public void ClearSelection()
+    public void DeSelect()
     {
+        // Move UI back to slot
         currentSelection = null;
     }
 
@@ -181,10 +191,11 @@ public class UI : MonoBehaviour
         if (combo != null)
         {
             //Delete old 2
-            UnSetSlot(ingOne);
-            UnSetSlot(ingTwo);
+            //UnSetSlot(ingOne);
+            //UnSetSlot(ingTwo);
             //Make new one
-            Item comboItem = new GameObject("NewCombo: " + combo.comboItem.name).AddComponent<Item>().Create(combo.comboItem);
+            Item comboItem = new GameObject("NewCombo: " + combo.comboItemData.name).AddComponent<Item>().Create(combo.comboItemData);
+            print("Created Combo: " + combo.comboItemData.name);
             SetSlot(comboItem);
             return true;
         }
@@ -195,17 +206,17 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void RefreshSpitUI(Spitball ball)
+    public void RefreshSpitUI(Item item)
     {
-        if (ball == null)
+        if (item == null)
         {
             ballText.SetText("");
             ammoText.SetText("");
             return;
         }
         
-        ballText.SetText(ball.data.name);
-        ammoText.SetText($"{ball.ammo}/{ball.data.startAmmo}");
+        ballText.SetText(item.data.name);
+        ammoText.SetText($"{item.Ammo}/{item.data.startAmmo}");
     }
 
     public void RefreshScoreUI(int score)

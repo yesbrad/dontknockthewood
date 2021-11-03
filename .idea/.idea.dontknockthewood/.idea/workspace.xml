@@ -19,23 +19,23 @@
       <option value="$PROJECT_DIR$/Assets/ItemManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Items.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/BasicItem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemCombo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/Catalog.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ItemManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LookAt.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TeacherBackboard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Items/SpitballData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spitball.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Items/SpitballData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LookAt.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teacher.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TeacherHitBox.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ExlemationHitBox.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MouthSlot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemCombo.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Slot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Items/InfinateItem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TeacherBackboard.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TeacherHitBox.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ExlemationHitBox.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teacher.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Slot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MouthSlot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1v5Lza84Bz9XM4Llr9kmfjnybKu" />
@@ -86,6 +86,7 @@
       <workItem from="1625926881734" duration="8383000" />
       <workItem from="1626072350390" duration="4624000" />
       <workItem from="1626506818992" duration="188000" />
+      <workItem from="1635914935512" duration="4281000" />
     </task>
     <servers />
   </component>

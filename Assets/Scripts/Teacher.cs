@@ -17,9 +17,9 @@ public class Teacher : MonoBehaviour
         exlemationMarkText.SetText("");
     }
 
-    public void GotHit(float amt, Spitball ball)
+    public void GotHit(float amt, Item item)
     {
-        GameManager.instance.AddScore((int)(amt * baseHitScore * ball.data.scoreMultiplier));
+        GameManager.instance.AddScore((int)(amt * baseHitScore * item.data.scoreMultiplier));
     }
     
     public void SetExclamation(string character = "!")

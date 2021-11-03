@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Items
 {
@@ -8,8 +9,8 @@ namespace Items
         public ItemData firstIngredient;
         public ItemData secondIngredient;
         
-        [Space]
+        [FormerlySerializedAs("comboItem")] [Space]
         
-        public ItemData comboItem;
+        public ItemData comboItemData;
     }
 }

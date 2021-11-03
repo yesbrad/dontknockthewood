@@ -7,7 +7,7 @@ public class ExlemationHitBox : MonoBehaviour, ISpitballHit
 {
     public string exlemationText = "!";
     
-    public void OnHit(Spitball ball)
+    public void OnHit(Item item)
     {
         GetComponentInParent<Teacher>().SetExclamation(exlemationText);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ISpitballHit
 {
-    public void OnHit(Spitball ball);
+    public void OnHit(Item item);
 }
 
 [RequireComponent(typeof(Collider))]
@@ -15,9 +15,9 @@ public class TeacherHitBox : MonoBehaviour, ISpitballHit
     
     public string exlemationText = "!";
 
-    public void OnHit(Spitball ball)
+    public void OnHit(Item item)
     {
-        GetComponentInParent<Teacher>().GotHit(hitScore, ball);
+        GetComponentInParent<Teacher>().GotHit(hitScore, item);
         GetComponentInParent<Teacher>().SetExclamation(exlemationText);
     }
 }

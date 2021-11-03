@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject spitballHitPFX;
     
-    private Spitball currentSpitBall;
+    private Item strawItem;
 
     private int score;
     
@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
         {
             //FIRE!!!
             
-            if (currentSpitBall != null)
+            if (strawItem != null)
             {
-                if (currentSpitBall.Use())
+                if (strawItem.Use())
                 {
                     RaycastHit hit;
 
@@ -47,18 +47,18 @@ public class GameManager : MonoBehaviour
 
                         if (s != null)
                         {
-                            s.OnHit(currentSpitBall);
+                            s.OnHit(strawItem);
                             impulseAnimator?.SetTrigger("Shoot");
                             Instantiate(spitballHitPFX, hit.point + (Vector3.forward * 0.2f), Quaternion.identity);                    
                         }
                     }
                     
-                    UI.instance.RefreshSpitUI(currentSpitBall);
+                    UI.instance.RefreshSpitUI(strawItem);
                 }
                 else
                 {
                     // NO AMMO
-                    currentSpitBall = null;
+                    strawItem = null;
                     UI.instance.RefreshSpitUI(null);
                 }
             }
@@ -104,10 +104,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddBall(SpitballData ball)
+    public void AddBall(Item item)
     {
-        currentSpitBall = new Spitball(ball);
-        UI.instance.RefreshSpitUI(currentSpitBall);
+        strawItem = item;
+        UI.instance.RefreshSpitUI(strawItem);
     }
 
     public void AddScore(int amt)

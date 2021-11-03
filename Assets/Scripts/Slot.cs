@@ -12,19 +12,19 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 {
     public Sprite defaultSprite;
     public Image slotImage;
-    internal Item currentItem;
+    internal Item slotItem;
 
-    public bool HasItem => currentItem != null;
+    public bool HasItem => slotItem != null;
 
     public void Set(Item item)
     {
-        currentItem = item;
+        slotItem = item;
         RefreshUI();
     }
 
     public void UnSet()
     {
-        currentItem = null;
+        slotItem = null;
         RefreshUI();
     }
 
@@ -32,15 +32,15 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         slotImage.color = Color.white;
         
-        if (currentItem)
+        if (slotItem)
         {
-            if (currentItem.data.slotImageSprite == null)
+            if (slotItem.data.slotImageSprite == null)
             {
                 slotImage.sprite = defaultSprite;
             }
             else
             {
-                slotImage.sprite = currentItem.data.slotImageSprite;
+                slotImage.sprite = slotItem.data.slotImageSprite;
             }
             return;
         }
@@ -69,15 +69,15 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnDraggedOnToo(Slot incomingSlot)
     {
-        if (currentItem == null)
+        if (slotItem == null)
         {
-            UI.instance.ClearSelection();
-            return;
+            //UI.instance.DeSelect();
+            //return;
         }
         
         if (UI.instance.HasDragItem)
         {
-            UI.instance.Combine(currentItem, incomingSlot.currentItem);
+            //UI.instance.Combine(currentItem, incomingSlot.currentItem);
                 
             //Debug.Log("COMBINE: " + incomingSlot.currentItem.data.name + " : " + currentItem.data.name, gameObject);
         }

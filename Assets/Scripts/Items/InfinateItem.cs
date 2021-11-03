@@ -10,15 +10,18 @@ public class InfinateItem : Item
 
     private bool waiting = false;
     
-    public override bool Select()
+    public override Item Select()
     {
         if (waiting)
-            return false;
+            return null;
 
         if(hasTimeRendererTimeout)
             StartCoroutine(Timeout());
+
+        Item newItem = Instantiate(this, Vector3.down * 100, Quaternion.identity);
+        newItem.Create(data);
         
-        return true;
+        return newItem;
     }
 
     IEnumerator Timeout()
