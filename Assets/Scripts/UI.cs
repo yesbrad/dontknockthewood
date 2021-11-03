@@ -182,8 +182,17 @@ public class UI : MonoBehaviour
         ammoText.SetText($"{item.Ammo}/{item.data.startAmmo}");
     }
 
-    public void RefreshScoreUI(int score)
+    private float lerpedScore = 0;
+    private float score = 0;
+
+    private void Update()
     {
-        scoreText.SetText("" + score);
+        lerpedScore = Mathf.Lerp(lerpedScore, score, Time.deltaTime * 10);
+        scoreText.SetText("" + Mathf.Ceil(lerpedScore));
+    }
+
+    public void RefreshScoreUI(int scorer)
+    {
+        this.score = scorer;
     }
 }
