@@ -77,6 +77,7 @@ public class UI : MonoBehaviour
     {
         currentSelection = slot;
         SetHoverText(slot.slotItem.data.name);
+        FindObjectOfType<MouthSlot>().SetMouthState(slot.slotItem);
     }
     
     

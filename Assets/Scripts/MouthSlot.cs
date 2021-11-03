@@ -8,6 +8,8 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
 {
     [SerializeField] private Sprite openSprite;
     [SerializeField] private Sprite closedSprite;
+    [SerializeField] private Image mouth;
+    
     
     [SerializeField] private Image firstSlotImage;
     [SerializeField] private Image secondSlotImage;
@@ -15,7 +17,12 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
     [Header("DEBBUG")]
     public Item firstSlot;
     public Item secondSlot;
-    
+
+    private void Awake()
+    {
+        SetMouthState(false);
+    }
+
     public void OnDraggedOnToo(Slot incomingSlot)
     {
         //print("Draggin on m0uth");
@@ -60,14 +67,30 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             //Update Mouth Slot UI
         }
             
+        SetMouthState(false);
+
         RefreshUI();
 
     }
 
-    public void SetMouthState(bool open)
+    public void SetMouthState(Item item)
     {
+        if (UI.instance.currentSelection && UI.instance.currentSelection.slotItem.data.canGoInMouth && firstSlot == null)
+        {
+            SetMouthState(true);
+            return;
+        }
         
+        ItemCombo combo = UI.instance.GetCombo(UI.instance.currentSelection.slotItem, firstSlot);
+
+        SetMouthState(combo);
     }
+
+    public void SetMouthState(bool item)
+    {
+        mouth.sprite = item ? openSprite : closedSprite;
+    }
+
 
     public void RefreshUI()
     {
