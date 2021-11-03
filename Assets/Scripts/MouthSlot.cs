@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Items;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +10,7 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
     [SerializeField] private Sprite openSprite;
     [SerializeField] private Sprite closedSprite;
     [SerializeField] private Image mouth;
+    [SerializeField] private Animator  mouthAnimator;
     
     
     [SerializeField] private Image firstSlotImage;
@@ -44,6 +46,7 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             if (UI.instance.Combine(firstSlot, secondSlot))
             {
                 // YUM Test
+                StartCoroutine(MouthAnimation());
                 firstSlot = null;
                 secondSlot = null;
             }
@@ -63,6 +66,7 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             firstSlot = incomingSlot.slotItem;
             UI.instance.UnSetSlot(firstSlot);
             UI.instance.SetHoverText(GameManager.instance.bible.eatCombo);
+            StartCoroutine(MouthAnimation());
             //add to first slot
             //Update Mouth Slot UI
         }
@@ -71,6 +75,17 @@ public class MouthSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
 
         RefreshUI();
 
+    }
+
+    IEnumerator MouthAnimation()
+    {
+        mouth.gameObject.SetActive(false);
+        mouthAnimator.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(GameManager.instance.bible.eatAnimationTime);
+        
+        mouth.gameObject.SetActive(true);
+        mouthAnimator.gameObject.SetActive(false);
     }
 
     public void SetMouthState(Item item)
