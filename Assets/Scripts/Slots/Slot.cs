@@ -75,9 +75,19 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         slotImage.transform.position = transform.position;
     }
 
-    public void OnDraggedOnToo(Slot incomingSlot)
+    public virtual void OnDraggedOnToo(Slot incomingSlot)
     {
+        if (slotItem == null)
+        {
+            Item newItem = incomingSlot.slotItem;
+            print("Set Slot!!");
+            UI.instance.UnSetSlot(incomingSlot.slotItem);
+            Set(newItem);
+            incomingSlot.ResetPosition();
+            ResetPosition();
+        }
         
+        UI.instance.DeSelect();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

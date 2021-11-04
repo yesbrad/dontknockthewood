@@ -54,7 +54,9 @@ public class UI : MonoBehaviour
 
     public void UnSetSlot(Item item)
     {
-        foreach (Slot slot in slots)
+        Slot[] allSlots = FindObjectsOfType<Slot>();
+        
+        foreach (Slot slot in allSlots)
         {
             if(slot.slotItem == null) continue;
             

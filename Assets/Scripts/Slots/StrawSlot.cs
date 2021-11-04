@@ -24,7 +24,6 @@ public class StrawSlot : MonoBehaviour, IDropSlot, IPointerEnterHandler, IPointe
             GameManager.instance.AddBall(slotItem);
             RefreshUI();
             UI.instance.UnSetSlot(slotItem);
-            FindObjectOfType<ComboSlot>().UnSet();
         }
         else
         {
